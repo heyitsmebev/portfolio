@@ -1,150 +1,26 @@
 "use client";
-import { useEffect } from "react";
-
-const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
-];
+import { Dialog } from "@headlessui/react";
+import {
+  Bars3Icon,
+  ChevronRightIcon,
+  XMarkIcon,
+} from "@heroicons/react/20/solid";
+import { useEffect, useState } from "react";
+import Header from "./common/header";
+import { Footer } from "./common/footer";
 
 export default function Home() {
   useEffect(() => {
     window.particlesJS.load("particles-js", "/assets/particles.json");
   });
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <div id="particles-js"></div>
-      <div className="bg-white">
-        <header className="absolute inset-x-0 top-0 z-50">
-          <nav
-            className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-            aria-label="Global"
-          >
-            <div className="flex lg:flex-1">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div className="flex lg:hidden">
-              <button
-                type="button"
-                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(true)}
-              >
-                <span className="sr-only">Open main menu</span>
-                {/* <Bars3Icon className="h-6 w-6" aria-hidden="true" /> */}
-              </button>
-            </div>
-            <div className="hidden lg:flex lg:gap-x-12">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-semibold leading-6 text-gray-900"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-            <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-              <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
-                Log in <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </nav>
-          <Dialog
-            as="div"
-            className="lg:hidden"
-            open={mobileMenuOpen}
-            onClose={setMobileMenuOpen}
-          >
-            <div className="fixed inset-0 z-50" />
-            <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-              <div className="flex items-center justify-between">
-                <a href="#" className="-m-1.5 p-1.5">
-                  <span className="sr-only">Your Company</span>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt=""
-                  />
-                </a>
-                <button
-                  type="button"
-                  className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span className="sr-only">Close menu</span>
-                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-500/10">
-                  <div className="space-y-2 py-6">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                  <div className="py-6">
-                    <a
-                      href="#"
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >
-                      Log in
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </Dialog.Panel>
-          </Dialog>
-        </header>
+    // <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <>
+      <div id="particles-js" className="absolute inset-0 z-10"></div>
+      <div className="bg-gray-900">
+        <Header />
         <main>
           <div className="relative isolate">
-            <svg
-              className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
-              aria-hidden="true"
-            >
-              <defs>
-                <pattern
-                  id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
-                  width={200}
-                  height={200}
-                  x="50%"
-                  y={-1}
-                  patternUnits="userSpaceOnUse"
-                >
-                  <path d="M.5 200V.5H200" fill="none" />
-                </pattern>
-              </defs>
-              <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
-                <path
-                  d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
-                  strokeWidth={0}
-                />
-              </svg>
-              <rect
-                width="100%"
-                height="100%"
-                strokeWidth={0}
-                fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
-              />
-            </svg>
             <div
               className="absolute left-1/2 right-0 top-0 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
               aria-hidden="true"
@@ -161,16 +37,39 @@ export default function Home() {
               <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
                 <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                   <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                    <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                      We’re changing the way people connect.
+                    <div className="mt-24 sm:mt-32 lg:mt-16">
+                      <a href="#" className="inline-flex space-x-6">
+                        <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
+                          Agile Team Player
+                        </span>
+                        <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300">
+                          <span>Creative-Solution</span>
+                          {/* <ChevronRightIcon
+                            className="h-5 w-5 text-gray-500"
+                            aria-hidden="true"
+                          /> */}
+                        </span>
+                      </a>
+                    </div>
+                    <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                      Beverly Nguyen
                     </h1>
-                    <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
+                    <h3 className="mt-5 font-medium text-5xl tracking-tight text-white">
+                      I build things for the web.
+                    </h3>
+                    <h4 className="mt-5 font-normal text-xl tracking-tight text-gray-300">
+                      I’m a front end software engineer specializing in building
+                      (and occasionally designing) exceptional digital
+                      experiences. Currently, I’m focused on building
+                      enterprise-level application at ____.
+                    </h4>
+                    {/* <p className="relative mt-6 text-lg leading-8 text-gray-300">
                       Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in
                       quis cupidatat mollit aute velit. Et labore commodo nulla
                       aliqua proident mollit ullamco exercitation tempor. Sint
                       aliqua anim nulla sunt mollit id pariatur in voluptate
                       cillum.
-                    </p>
+                    </p> */}
                     <div className="mt-10 flex items-center gap-x-6">
                       <a
                         href="#"
@@ -180,7 +79,7 @@ export default function Home() {
                       </a>
                       <a
                         href="#"
-                        className="text-sm font-semibold leading-6 text-gray-900"
+                        className="text-sm font-semibold leading-6 text-white"
                       >
                         Live demo <span aria-hidden="true">→</span>
                       </a>
@@ -237,9 +136,66 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
+            {/* Content SEction  */}
+            <div className="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
+              <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                  Our mission
+                </h2>
+                <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
+                  <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
+                    <p className="text-xl leading-8 text-gray-600">
+                      Aliquet nec orci mattis amet quisque ullamcorper neque,
+                      nibh sem. At arcu, sit dui mi, nibh dui, diam eget
+                      aliquam. Quisque id at vitae feugiat egestas ac. Diam
+                      nulla orci at in viverra scelerisque eget. Eleifend
+                      egestas fringilla sapien.
+                    </p>
+                    <div className="mt-10 max-w-xl text-base leading-7 text-gray-700">
+                      <p>
+                        Faucibus commodo massa rhoncus, volutpat. Dignissim sed
+                        eget risus enim. Mattis mauris semper sed amet vitae sed
+                        turpis id. Id dolor praesent donec est. Odio penatibus
+                        risus viverra tellus varius sit neque erat velit.
+                        Faucibus commodo massa rhoncus, volutpat. Dignissim sed
+                        eget risus enim. Mattis mauris semper sed amet vitae sed
+                        turpis id.
+                      </p>
+                      <p className="mt-10">
+                        Et vitae blandit facilisi magna lacus commodo. Vitae
+                        sapien duis odio id et. Id blandit molestie auctor
+                        fermentum dignissim. Lacus diam tincidunt ac cursus in
+                        vel. Mauris varius vulputate et ultrices hac adipiscing
+                        egestas. Iaculis convallis ac tempor et ut. Ac lorem vel
+                        integer orci.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="lg:flex lg:flex-auto lg:justify-center">
+                    <dl className="w-64 space-y-8 xl:w-80">
+                      {/* {stats.map((stat) => (
+                        <div
+                          key={stat.label}
+                          className="flex flex-col-reverse gap-y-4"
+                        >
+                          <dt className="text-base leading-7 text-gray-600">
+                            {stat.label}
+                          </dt>
+                          <dd className="text-5xl font-semibold tracking-tight text-gray-900">
+                            {stat.value}
+                          </dd>
+                        </div>
+                      ))} */}
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <Footer />
           </div>
         </main>
       </div>
-    </main>
+    </>
   );
 }
